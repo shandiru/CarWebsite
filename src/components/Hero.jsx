@@ -61,10 +61,10 @@ export default function HeroSection() {
               {/* Main Heading */}
               <div data-aos="fade-right" data-aos-delay="100">
                 <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-tight">
-                  Engine Carbon
+                  TJ Elite Tuning 
                   <br />
                   <span className="bg-gradient-to-r from-red-500 to-orange-500 bg-clip-text text-transparent">
-                    Cleaning Service
+                    & Vehicle Services 
                   </span>
                 </h1>
               </div>
@@ -75,7 +75,7 @@ export default function HeroSection() {
                 data-aos-delay="200"
                 className="text-xl text-gray-300 leading-relaxed max-w-xl"
               >
-                Restore your engine's peak performance with professional carbon cleaning. Improve fuel efficiency, reduce emissions, and extend engine life.
+                Offering comprehensive garage/mobile services tailored to meet your automotive needs.
               </p>
 
               {/* Benefits List */}

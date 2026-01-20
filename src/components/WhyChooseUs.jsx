@@ -218,7 +218,7 @@ export default function WhyChooseUs() {
         </div>
 
         {/* CTA Banner */}
-        <div className="mt-16 text-center" data-aos="fade-up">
+        {/* <div className="mt-16 text-center" data-aos="fade-up">
           <div className="inline-block bg-gradient-to-r from-red-600/20 to-orange-600/20 backdrop-blur-sm border border-red-500/30 rounded-2xl px-8 py-6">
             <p className="text-gray-300 mb-4">
               Experience the difference professional service makes
@@ -228,7 +228,7 @@ export default function WhyChooseUs() {
               <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
             </button>
           </div>
-        </div>
+        </div> */}
 
       </div>
     </section>

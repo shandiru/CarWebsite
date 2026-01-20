@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
-import { 
-  FaMapMarkerAlt, 
-  FaClock, 
-  FaTools, 
+import {
+  FaMapMarkerAlt,
+  FaClock,
+  FaTools,
   FaAward,
   FaUserFriends,
   FaShieldAlt,
@@ -55,7 +55,7 @@ export default function AboutSection() {
   return (
     <section
       id="about"
-      className="relative bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 text-white py-20 px-4 sm:px-6 overflow-hidden"
+      className="relative bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 text-white py-10 px-4 sm:px-6 overflow-hidden"
     >
       {/* Animated Background Elements */}
       <div className="absolute inset-0 opacity-10">
@@ -169,74 +169,6 @@ export default function AboutSection() {
             );
           })}
         </div>
-
-        {/* Service Hours Card */}
-        <div className="max-w-4xl mx-auto mb-16" data-aos="fade-up">
-          <div className="bg-gradient-to-br from-slate-800/90 to-slate-900/90 backdrop-blur-sm border border-slate-700 rounded-2xl p-8">
-            <div className="flex flex-col md:flex-row items-center gap-8">
-              
-              <div className="flex-shrink-0">
-                <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-red-600 to-red-700 flex items-center justify-center">
-                  <FaClock className="text-4xl text-white" />
-                </div>
-              </div>
-
-              <div className="flex-1 text-center md:text-left">
-                <h3 className="text-2xl font-bold mb-4">Service Hours</h3>
-                <div className="grid sm:grid-cols-3 gap-4 text-sm">
-                  <div>
-                    <p className="text-gray-400 mb-1">Monday - Friday</p>
-                    <p className="font-semibold text-white">9:00 AM - 6:00 PM</p>
-                  </div>
-                  <div>
-                    <p className="text-gray-400 mb-1">Saturday</p>
-                    <p className="font-semibold text-white">10:00 AM - 4:00 PM</p>
-                  </div>
-                  <div>
-                    <p className="text-gray-400 mb-1">Sunday</p>
-                    <p className="font-semibold text-white">By Appointment</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex-shrink-0">
-                <div className="flex flex-col gap-2">
-                  <div className="flex items-center gap-2 text-green-500">
-                    <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                    <span className="text-sm font-semibold">Available Now</span>
-                  </div>
-                  <p className="text-xs text-gray-400">Fast response time</p>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-        {/* CTA Section */}
-        <div className="text-center" data-aos="fade-up">
-          <div className="inline-block bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm border border-slate-700 rounded-2xl p-8">
-            <h3 className="text-2xl font-bold mb-4">Ready to Get Started?</h3>
-            <p className="text-gray-400 mb-6 max-w-md">
-              Contact us today for a free consultation and experience the difference professional service makes
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="tel:07752549740"
-                className="group inline-flex items-center justify-center gap-3 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 px-8 py-4 rounded-xl font-semibold shadow-lg shadow-red-600/30 transition-all duration-300 transform hover:scale-105"
-              >
-                <FaPhoneAlt />
-                <span>Call Now</span>
-                <span className="group-hover:translate-x-1 transition-transform">→</span>
-              </a>
-              <button className="inline-flex items-center justify-center gap-3 bg-white/5 hover:bg-white/10 border border-white/20 px-8 py-4 rounded-xl font-semibold backdrop-blur-sm transition-all duration-300">
-                <FaStar />
-                <span>View Reviews</span>
-              </button>
-            </div>
-          </div>
-        </div>
-
       </div>
     </section>
   );
