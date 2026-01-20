@@ -5,41 +5,30 @@ import "aos/dist/aos.css";
 
 const reviews = [
   {
-    name: "Michael Anderson",
-    text: "Outstanding service from start to finish. The team was professional, punctual, and the results exceeded my expectations. My vehicle runs like new!",
+    name: "Tom L",
+    text: "TJ Elite turning remapped my Ford focus this weekend. I was not only happy with the Tunning, the customer care afterwards was amazing. The car seems to have more power and less petrol used. I recommend for anyone that is thinking about getting it done to give these guys a call 1st. Thanks for a great service and I will be letting my friends and family know about you",
     rating: 5,
     service: "Engine Service",
   },
   {
-    name: "Sarah Mitchell",
-    text: "Incredible improvement in performance and fuel efficiency. The mobile service was so convenient - they came to my office and completed everything in under an hour.",
+    name: "Emily Tedman",
+    text: "Can’t recommend Toby highly enough, saved me a few times now and all with a smile on his face 🤣. Honestly the nicest most reliable mechanic around. Thank you Toby!",
     rating: 5,
     service: "Carbon Cleaning",
   },
   {
-    name: "David Chen",
-    text: "Best automotive service I've experienced. Transparent pricing, expert knowledge, and genuine care for customer satisfaction. Highly recommend!",
+    name: "Annabelle Reid",
+    text: "Great company, friendly service, answered all questions with great knowledge. Would recommend!",
     rating: 5,
     service: "Full Service",
   },
   {
-    name: "Emma Thompson",
-    text: "The difference is night and day. My car had been sluggish for months and now it drives perfectly. The technician explained everything clearly.",
+    name: "Ashley Reid",
+    text: "Does what it says on the tin and with a smile. Top notch service.",
     rating: 5,
     service: "Performance Tune",
   },
-  {
-    name: "James Wilson",
-    text: "Professional, reliable, and excellent value. They diagnosed the issue quickly and fixed it properly. Will definitely use again.",
-    rating: 5,
-    service: "Diagnostic Service",
-  },
-  {
-    name: "Lisa Parker",
-    text: "Fantastic experience! The mobile service saved me so much time. The work quality is exceptional and the results speak for themselves.",
-    rating: 5,
-    service: "Complete Service",
-  },
+  
 ];
 
 export default function Review  () {
@@ -134,7 +123,7 @@ export default function Review  () {
                 </div>
                 <div className="text-center">
                   <p className="text-xl font-bold text-white">{reviews[activeIndex].name}</p>
-                  <p className="text-sm text-gray-400">{reviews[activeIndex].service}</p>
+                  {/* <p className="text-sm text-gray-400">{reviews[activeIndex].service}</p> */}
                 </div>
               </div>
             </div>
