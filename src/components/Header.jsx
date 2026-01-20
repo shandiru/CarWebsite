@@ -6,8 +6,7 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  const phone = "07752549740";
-  const waNumber = "";
+  const waNumber = "447393334935";
   const waHref = `https://wa.me/${waNumber}`;
 
   useEffect(() => {
@@ -28,24 +27,24 @@ export default function Header() {
     <header
       className={`fixed top-0 w-full z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-black/95 backdrop-blur-lg shadow-lg shadow-red-600/20"
+          ? "bg-black/95 backdrop-blur-lg shadow-lg shadow-[#E8D5E8]"
           : "bg-gradient-to-b from-black/90 to-transparent"
       }`}
     >
       {/* Top accent line */}
-      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-red-600 to-transparent"></div>
+      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#E8D5E8] to-transparent"></div>
 
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         <div className="flex items-center justify-between h-20">
 
           {/* LOGO with animated glow */}
           <div className="relative group">
-            <div className="absolute -inset-2 bg-gradient-to-r from-red-600 to-red-800 rounded-lg blur opacity-20 group-hover:opacity-40 transition duration-500"></div>
-            <div className="relative flex items-center gap-3 px-3 py-2 rounded-lg bg-black/50 border border-red-600/30">
+            <div className="absolute -inset-2"></div>
+            <div className="relative flex items-center">
               <img
                 src="/logo.png"
                 alt="Nottingham Carbon Cleaning"
-                className="h-12 w-auto transition-transform duration-300 group-hover:scale-110"
+                className="h-20 w-30 transition-transform duration-300 group-hover:scale-110"
               />
             </div>
           </div>
@@ -60,10 +59,10 @@ export default function Header() {
                 className="relative px-5 py-2 text-sm font-bold uppercase tracking-wider text-gray-300 hover:text-white transition-colors duration-300 group"
               >
                 {/* Top bar indicator */}
-                <span className="absolute top-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-red-600 to-red-400 group-hover:w-full transition-all duration-300"></span>
+                <span className="absolute top-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r  to-[#E8D5E8] group-hover:w-full transition-all duration-300"></span>
                 
                 {/* Bottom bar indicator */}
-                <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-red-400 to-red-600 group-hover:w-full transition-all duration-300"></span>
+                <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r to-[#E8D5E8] group-hover:w-full transition-all duration-300"></span>
                 
                 {/* Text with glow effect */}
                 <span className="relative z-10 group-hover:drop-shadow-[0_0_8px_rgba(220,38,38,0.8)]">
@@ -71,7 +70,7 @@ export default function Header() {
                 </span>
 
                 {/* Background fill on hover */}
-                <span className="absolute inset-0 bg-gradient-to-r from-red-600/0 via-red-600/10 to-red-600/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded"></span>
+                <span className="absolute inset-0 bg-gradient-to-r to-[#E8D5E8]opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded"></span>
               </HashLink>
             ))}
           </nav>
@@ -176,7 +175,7 @@ export default function Header() {
       </div>
 
       {/* Bottom glow effect */}
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-red-600/50 to-transparent"></div>
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#E8D5E8] to-transparent"></div>
     </header>
   );
 }

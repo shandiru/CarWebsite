@@ -28,7 +28,7 @@ const TermsConditions = () => {
                   <section>
                       <h2 className="text-2xl font-medium">3. Intellectual Property</h2>
                       <p className="text-white">
-                          All content on this website (including text, images, graphics, and logos) is owned by or licensed to AF-MOK Performance.
+                          All content on this website (including text, images, graphics, and logos) is owned by or licensed to TJ Elite Tuning & Vehicle Service.
                           You may view, download, and print content for personal use only.
                           You must not copy, reproduce, or distribute our website content without prior written consent.
                       </p>
@@ -77,11 +77,10 @@ const TermsConditions = () => {
                           If you have any questions about these Terms of Use, please contact us:
                       </p>
                       <div className="text-white">
-                         <p><strong>BROADWAY REMAPPING</strong></p>
-                        <p>Email: <a href="mailto:yandmjones@outlook.com" className="text-red-400 hover:underline">yandmjones@outlook.com</a></p>
-                        <p>Phone: +44 7392 791919</p>
-                        <p>Address: Que Sera, Pentre Hill,
-Flint Mountain, Flint, United Kingdom</p>
+                         <p><strong>TJ Elite Tuning & Vehicle Service</strong></p>
+                        <p>Email: <a href="mailto:Toby@tjelitetuning.co.uk" className="text-red-400 hover:underline">Toby@tjelitetuning.co.uk</a></p>
+                        <p>Phone: +44 7393 334935</p>
+                        <p>Address: The Pigsty at Home Farm, Wadesmill, Ware, United Kingdom</p>
                       </div>
                   </section>
               </div>
