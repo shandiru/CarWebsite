@@ -101,7 +101,7 @@ export default function Gallery() {
       )}
 
       {/* Stats Section */}
-      <div className="relative z-10 max-w-5xl mx-auto px-6 mt-24">
+      {/* <div className="relative z-10 max-w-5xl mx-auto px-6 mt-24">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {[
             { number: "500+", label: "Vehicles Tuned" },
@@ -117,7 +117,7 @@ export default function Gallery() {
             </div>
           ))}
         </div>
-      </div>
+      </div> */}
     </section>
   );
 }
