@@ -5,23 +5,34 @@ import React, { useState } from "react";
 export default function Gallery() {
   const [selectedImage, setSelectedImage] = useState(null);
 
-  // Automatically generates images im2.jpg through im15.jpg (skipping im1)
- const images = Array.from({ length: 19 }, (_, i) => {
-  const imageNumber = i + 2;
-  // Check if the image number is between 16 and 20
-  const extension = (imageNumber >= 16 && imageNumber <= 20) ? 'png' : 'jpg';
-  
-  return {
-    src: `/im${imageNumber}.${extension}`,
-  };
-});
+  // 1. Manually define your EU images
+  const euImages = [
+    { src: "/EU.jpeg" },
+    { src: "/EU1.jpeg" },
+    { src: "/EU2.jpeg" },
+    { src: "/EU3.jpeg" },
+    { src: "/EU4.jpeg" },
+    { src: "/EU5.jpeg" },
+  ];
+
+  // 2. Generate the im2.jpg to im20.png series
+  const generatedImages = Array.from({ length: 19 }, (_, i) => {
+    const imageNumber = i + 2;
+    const extension = (imageNumber >= 16 && imageNumber <= 20) ? 'png' : 'jpg';
+    return {
+      src: `/im${imageNumber}.${extension}`,
+    };
+  });
+
+  // 3. Combine both arrays
+  const images = [...euImages, ...generatedImages];
 
   return (
     <section
       id="gallery"
       className="relative bg-black py-20 px-4 sm:px-6 overflow-hidden text-white"
     >
-      {/* Background Decor - Using Elite Pink and Dark Slate */}
+      {/* Background Decor */}
       <div className="absolute inset-0 opacity-20">
         <div className="absolute top-1/4 left-0 w-96 h-96 bg-[#E8D5E8] rounded-full blur-[120px] opacity-10"></div>
         <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-[#1C1B2E] rounded-full blur-[120px]"></div>
@@ -62,7 +73,8 @@ export default function Gallery() {
               <div className="relative h-full overflow-hidden bg-zinc-900">
                 <img
                   src={img.src}
-                  alt={`TJ Elite Tuning Project`}
+                  alt={`Project ${i + 1}`}
+                  loading="lazy"
                   className={`
                     w-full object-cover transition-all duration-700 group-hover:scale-110
                     ${i % 5 === 0 ? "h-[500px]" : i % 7 === 0 ? "h-[400px]" : "h-[300px]"}
@@ -105,25 +117,6 @@ export default function Gallery() {
           />
         </div>
       )}
-
-      {/* Stats Section */}
-      {/* <div className="relative z-10 max-w-5xl mx-auto px-6 mt-24">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          {[
-            { number: "500+", label: "Vehicles Tuned" },
-            { number: "100%", label: "Satisfaction" },
-            { number: "15+", label: "Years Experience" },
-            { number: "Elite", label: "Performance" },
-          ].map((stat, i) => (
-            <div key={i} className="text-center p-6 rounded-xl bg-white/5 border border-white/10 transition-all hover:border-[#E8D5E8]/40">
-              <div className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#E8D5E8] to-[#A28BA2] mb-1">
-                {stat.number}
-              </div>
-              <div className="text-gray-500 text-xs uppercase tracking-widest font-semibold">{stat.label}</div>
-            </div>
-          ))}
-        </div>
-      </div> */}
     </section>
   );
 }
