@@ -6,9 +6,15 @@ export default function Gallery() {
   const [selectedImage, setSelectedImage] = useState(null);
 
   // Automatically generates images im2.jpg through im15.jpg (skipping im1)
-  const images = Array.from({ length: 14 }, (_, i) => ({
-    src: `/im${i + 2}.jpg`,
-  }));
+ const images = Array.from({ length: 19 }, (_, i) => {
+  const imageNumber = i + 2;
+  // Check if the image number is between 16 and 20
+  const extension = (imageNumber >= 16 && imageNumber <= 20) ? 'png' : 'jpg';
+  
+  return {
+    src: `/im${imageNumber}.${extension}`,
+  };
+});
 
   return (
     <section
