@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
-    <footer className="bg-black text-white font-['Oswald']">
+    <footer className="bg-black text-white ">
 
       {/* ================= TOP BRAND STRIP ================= */}
       <div className="border-b border-gray-800 py-12 relative overflow-hidden">
