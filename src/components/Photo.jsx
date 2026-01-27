@@ -3,120 +3,110 @@
 import React, { useState } from "react";
 
 export default function Gallery() {
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   // 1. Manually define your EU images
   const euImages = [
-    { src: "/EU.jpeg" },
-    { src: "/EU1.jpeg" },
-    { src: "/EU2.jpeg" },
-    { src: "/EU3.jpeg" },
-    { src: "/EU4.jpeg" },
-    { src: "/EU5.jpeg" },
+    { src: "/EU.jpeg" }, { src: "/EU1.jpeg" }, { src: "/EU2.jpeg" },
+    { src: "/EU3.jpeg" }, { src: "/EU4.jpeg" }, { src: "/EU5.jpeg" },
   ];
 
   // 2. Generate the im2.jpg to im20.png series
   const generatedImages = Array.from({ length: 19 }, (_, i) => {
     const imageNumber = i + 2;
     const extension = (imageNumber >= 16 && imageNumber <= 20) ? 'png' : 'jpg';
-    return {
-      src: `/im${imageNumber}.${extension}`,
-    };
+    return { src: `/im${imageNumber}.${extension}` };
   });
 
-  // 3. Combine both arrays
   const images = [...euImages, ...generatedImages];
 
+  // Navigation Logic
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+  };
+
   return (
-    <section
-      id="gallery"
-      className="relative bg-black py-20 px-4 sm:px-6 overflow-hidden text-white"
-    >
+    <section id="gallery" className="relative bg-black py-20 px-4 overflow-hidden text-white min-h-screen flex flex-col justify-center">
+      
       {/* Background Decor */}
       <div className="absolute inset-0 opacity-20">
         <div className="absolute top-1/4 left-0 w-96 h-96 bg-[#E8D5E8] rounded-full blur-[120px] opacity-10"></div>
         <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-[#1C1B2E] rounded-full blur-[120px]"></div>
       </div>
 
-      <div className="absolute inset-0 opacity-5 bg-[radial-gradient(circle_at_center,#E8D5E8_1px,transparent_1px)] bg-[size:40px_40px]"></div>
-
       {/* HEADER */}
-      <div className="relative z-10 text-center max-w-6xl mx-auto px-6 mb-16">
-        <div className="inline-block">
-          <h2 className="text-5xl md:text-6xl font-bold uppercase tracking-wider mb-4">
-            Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E8D5E8] to-[#A28BA2]">Work</span>
-          </h2>
-          <div className="flex items-center justify-center gap-3">
-            <div className="w-20 h-1 bg-gradient-to-r from-transparent via-[#E8D5E8] to-transparent"></div>
-            <div className="w-2 h-2 bg-[#E8D5E8] rotate-45"></div>
-            <div className="w-20 h-1 bg-gradient-to-r from-transparent via-[#E8D5E8] to-transparent"></div>
-          </div>
+      <div className="relative z-10 text-center max-w-6xl mx-auto px-6 mb-12">
+        <h2 className="text-4xl md:text-6xl font-bold uppercase tracking-tighter mb-4">
+          Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E8D5E8] to-[#A28BA2]">Work</span>
+        </h2>
+        <div className="flex items-center justify-center gap-3 mb-6">
+          <div className="w-16 h-[1px] bg-[#E8D5E8]/30"></div>
+          <div className="w-2 h-2 bg-[#E8D5E8] rotate-45"></div>
+          <div className="w-16 h-[1px] bg-[#E8D5E8]/30"></div>
         </div>
-        <p className="text-gray-400 mt-8 max-w-2xl mx-auto text-lg leading-relaxed">
-          High-performance tuning and precision vehicle services. Browse our latest projects.
-        </p>
       </div>
 
-      {/* MASONRY GRID */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {images.map((img, i) => (
-            <div
-              key={i}
-              className={`
-                group relative overflow-hidden rounded-xl cursor-pointer border border-white/5
-                ${i % 5 === 0 ? "sm:col-span-2 sm:row-span-2" : ""}
-                ${i % 7 === 0 ? "lg:col-span-1 lg:row-span-2" : ""}
-              `}
-              onClick={() => setSelectedImage(img.src)}
-            >
-              <div className="relative h-full overflow-hidden bg-zinc-900">
-                <img
-                  src={img.src}
-                  alt={`Project ${i + 1}`}
-                  loading="lazy"
-                  className={`
-                    w-full object-cover transition-all duration-700 group-hover:scale-110
-                    ${i % 5 === 0 ? "h-[500px]" : i % 7 === 0 ? "h-[400px]" : "h-[300px]"}
-                  `}
-                />
-                
-                {/* Overlays */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity"></div>
-                <div className="absolute inset-0 bg-[#E8D5E8]/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+      {/* MAIN CAROUSEL CONTAINER */}
+      <div className="relative z-10 max-w-5xl mx-auto w-full group">
+        <div className="relative aspect-[16/9] md:aspect-[21/9] overflow-hidden rounded-2xl border border-white/10 bg-zinc-900 shadow-2xl">
+          
+          {/* Main Image */}
+          <img
+            src={images[currentIndex].src}
+            alt={`Car ${currentIndex + 1}`}
+            className="w-full h-full object-cover transition-all duration-500 ease-in-out"
+          />
 
-                {/* Hover Icon */}
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all transform translate-y-4 group-hover:translate-y-0">
-                  <div className="w-14 h-14 rounded-full bg-[#E8D5E8] flex items-center justify-center shadow-xl shadow-[#E8D5E8]/20">
-                    <svg className="w-6 h-6 text-[#1C1B2E]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7" />
-                    </svg>
-                  </div>
-                </div>
-              </div>
+          {/* Navigation Arrows */}
+          <button 
+            onClick={prevSlide}
+            className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/50 border border-white/10 flex items-center justify-center text-white hover:bg-[#E8D5E8] hover:text-black transition-all z-20 backdrop-blur-sm"
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+
+          <button 
+            onClick={nextSlide}
+            className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/50 border border-white/10 flex items-center justify-center text-white hover:bg-[#E8D5E8] hover:text-black transition-all z-20 backdrop-blur-sm"
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+
+          {/* Image Counter Overlay */}
+          <div className="absolute bottom-4 right-6 bg-black/60 px-4 py-1 rounded-full text-xs font-mono tracking-widest border border-white/10">
+            {currentIndex + 1} / {images.length}
+          </div>
+        </div>
+
+        {/* THUMBNAILS STRIP */}
+        <div className="mt-6 flex gap-3 overflow-x-auto pb-4 no-scrollbar scroll-smooth px-2">
+          {images.map((img, index) => (
+            <div
+              key={index}
+              onClick={() => setCurrentIndex(index)}
+              className={`
+                relative flex-shrink-0 w-20 h-14 md:w-28 md:h-20 rounded-lg cursor-pointer overflow-hidden border-2 transition-all
+                ${currentIndex === index ? "border-[#E8D5E8] scale-105 shadow-lg shadow-[#E8D5E8]/20" : "border-transparent opacity-50 hover:opacity-100"}
+              `}
+            >
+              <img src={img.src} className="w-full h-full object-cover" alt="thumbnail" />
             </div>
           ))}
         </div>
       </div>
 
-      {/* LIGHTBOX MODAL */}
-      {selectedImage && (
-        <div
-          className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-md flex items-center justify-center p-4"
-          onClick={() => setSelectedImage(null)}
-        >
-          <button className="absolute top-6 right-6 w-12 h-12 rounded-full bg-[#E8D5E8] flex items-center justify-center text-[#1C1B2E] transition-transform hover:scale-110">
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
-          <img
-            src={selectedImage}
-            alt="Expanded view"
-            className="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl border border-white/10"
-          />
-        </div>
-      )}
+      <style jsx>{`
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+      `}</style>
     </section>
   );
 }
